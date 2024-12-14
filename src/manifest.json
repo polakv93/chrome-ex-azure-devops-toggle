@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Azure DevOps Toggl Integration",
+  "version": "0.0.1",
+  "description": "Start Toggl timers from Azure DevOps work items",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.visualstudio.com/*",
+    "https://dev.azure.com/*",
+    "https://api.track.toggl.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.visualstudio.com/*",
+        "https://dev.azure.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+} 
